@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        //For now, just fetch all enemies in scene on start, refine later once waves are in.
+        enemies.AddRange(FindObjectsOfType<Enemy>());
     }
 
     // Update is called once per frame
