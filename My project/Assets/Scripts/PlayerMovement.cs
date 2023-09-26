@@ -49,12 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Enemy enemy in gm.enemies)
         {
-            Vector2 diff = new Vector2(enemy.transform.position.x, enemy.transform.position.y) - rb.position;
-
-            if (diff.sqrMagnitude < dist)
+            if (enemy.gameObject.activeSelf)
             {
-                nearest = enemy;
-                dist = diff.sqrMagnitude;
+                Vector2 diff = new Vector2(enemy.transform.position.x, enemy.transform.position.y) - rb.position;
+
+                if (diff.sqrMagnitude < dist)
+                {
+                    nearest = enemy;
+                    dist = diff.sqrMagnitude;
+                }
             }
         }
 
