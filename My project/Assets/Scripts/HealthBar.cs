@@ -1,3 +1,6 @@
+//Health bar code plus associated Shader was taken from https://www.stevestreeting.com/2019/02/22/enemy-health-bars-in-1-draw-call-in-unity/ 
+//Github Repo for the project: https://github.com/sinbad/UnityInstancedHealthBars 
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

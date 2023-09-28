@@ -1,3 +1,6 @@
+//I am NOT clever enough to write my own shaders, this was taken from https://www.stevestreeting.com/2019/02/22/enemy-health-bars-in-1-draw-call-in-unity/
+//in the interest of efficiency.
+
 Shader "UI/HealthBar" {
     Properties{
         _MainTex("Texture", 2D) = "white" {}
