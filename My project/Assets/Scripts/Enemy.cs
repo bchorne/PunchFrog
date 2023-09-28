@@ -17,9 +17,12 @@ public class Enemy : MonoBehaviour
     public enum EnemyType { ranged, melee}
     public EnemyType type;
 
+    public GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -58,7 +61,14 @@ public class Enemy : MonoBehaviour
 
         if (curHealth <= 0)
         {
-            gameObject.SetActive(false);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        gm.enemies.Remove(this);
+
+        gameObject.SetActive(false);
     }
 }
