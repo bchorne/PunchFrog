@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
 
     public GameManager gm;
 
+    public GameObject ExpDrop;
+    public int ExpReward;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,10 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        //Drop Exp Gem
+        GameObject tmp = Instantiate(ExpDrop, transform.position, Quaternion.identity);
+        tmp.GetComponent<ExpPickUp>().amount = ExpReward;
+        
         gm.enemies.Remove(this);
 
         gameObject.SetActive(false);

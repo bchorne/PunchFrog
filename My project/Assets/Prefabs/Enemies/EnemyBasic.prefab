@@ -196,10 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb21d6ef41dd754d810b91ad1693649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 15000
-  maxHealth: 15000
+  curHealth: 150
+  maxHealth: 150
   speed: 1
   type: 0
+  gm: {fileID: 0}
+  ExpDrop: {fileID: 8861113529151272833, guid: 150818a185d575046bb2b0c5ce32ed93, type: 3}
+  ExpReward: 350
 --- !u!50 &1734681710021671279
 Rigidbody2D:
   serializedVersion: 4
