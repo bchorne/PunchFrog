@@ -5763,9 +5763,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3ea7a90d47bc6418702192c049bfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10000
-  currentHealth: 10000
+  maxHealth: 1000
+  currentHealth: 1000
   isPlayer: 1
+  DamageNum: {fileID: 1556381284255546073, guid: 39cfafbcff606304c8221a6d606f4c23, type: 3}
 --- !u!1 &701404648
 GameObject:
   m_ObjectHideFlags: 0

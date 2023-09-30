@@ -184,6 +184,7 @@ MonoBehaviour:
   maxHealth: 150
   currentHealth: 1
   isPlayer: 0
+  DamageNum: {fileID: 1556381284255546073, guid: 39cfafbcff606304c8221a6d606f4c23, type: 3}
 --- !u!1 &1021925282077132120
 GameObject:
   m_ObjectHideFlags: 0

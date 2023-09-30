@@ -8,16 +8,20 @@ public class Damageable : MonoBehaviour
     public int currentHealth;
 
     public bool isPlayer;
+    public GameObject DamageNum;
 
     public void takeDamage(int damageIn)
     {
         currentHealth -= damageIn;
+        GameObject tmp = Instantiate(DamageNum, transform.position, Quaternion.identity);
+        tmp.GetComponent<DamageNumber>().text.text = damageIn.ToString();
 
         if (currentHealth <= 0)
         {
             if (isPlayer)
             {
                 //Game Over
+                Debug.Log("Dead!");
             }
             else //Must be enemy; get its enemy and run Die
             {
