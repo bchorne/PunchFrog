@@ -24,14 +24,9 @@ public class BulletParticles : MonoBehaviour
 
         }
 
-        if (other.TryGetComponent<Enemy>(out Enemy en))
+        if (other.TryGetComponent<Damageable>(out Damageable thing))
         {
-            en.takeDamage(Damage);
+            thing.takeDamage(Damage);
         }
-    }
-
-    public void Fire()
-    {
-        sys.Play();
     }
 }

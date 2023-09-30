@@ -51,7 +51,7 @@ public class SpawnHandler : MonoBehaviour
                 tmp.transform.position = spawn.transform.position;
 
                 //Refill enemy hp
-                tmp.GetComponent<Enemy>().curHealth = tmp.GetComponent<Enemy>().maxHealth;
+                tmp.GetComponent<Damageable>().currentHealth = tmp.GetComponent<Damageable>().maxHealth;
 
                 //Activate them
                 tmp.SetActive(true);

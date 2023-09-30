@@ -5,6 +5,7 @@ using UnityEngine;
 public class ParticleRotation : MonoBehaviour
 {
     ParticleSystem sys;
+    public bool isEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,13 @@ public class ParticleRotation : MonoBehaviour
     void Update()
     {
         var main = sys.main;
-        main.startRotation = (transform.rotation.eulerAngles.z - 90f) * Mathf.Deg2Rad;
+        if (isEnemy)
+        {
+            main.startRotation = -(transform.rotation.eulerAngles.z - 90f) * Mathf.Deg2Rad;
+        }
+        else
+        {
+            main.startRotation = (transform.rotation.eulerAngles.z - 90f) * Mathf.Deg2Rad;
+        }
     }
 }

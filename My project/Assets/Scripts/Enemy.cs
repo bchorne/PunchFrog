@@ -7,8 +7,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    public int curHealth;
-    public int maxHealth;
     public float speed;
 
     private PlayerMovement player;
@@ -22,18 +20,11 @@ public class Enemy : MonoBehaviour
     public GameObject ExpDrop;
     public int ExpReward;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gm = FindObjectOfType<GameManager>();
         player = FindObjectOfType<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -55,16 +46,6 @@ public class Enemy : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-        }
-    }
-
-    public void takeDamage(int damageIn)
-    {
-        curHealth -= damageIn;
-
-        if (curHealth <= 0)
-        {
-            Die();
         }
     }
 

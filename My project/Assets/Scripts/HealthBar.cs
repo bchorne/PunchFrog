@@ -11,14 +11,14 @@ public class HealthBar : MonoBehaviour
     MaterialPropertyBlock matBlock;
     MeshRenderer meshRenderer;
     Camera mainCamera;
-    Enemy enemy;
+    Damageable entity;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
         matBlock = new MaterialPropertyBlock();
         // get the damageable parent we're attached to
-        enemy = GetComponentInParent<Enemy>();
+        entity = GetComponentInParent<Damageable>();
     }
 
     private void Start()
@@ -30,7 +30,7 @@ public class HealthBar : MonoBehaviour
     private void Update()
     {
         // Only display on partial health
-        if (enemy.curHealth < enemy.maxHealth)
+        if (entity.currentHealth < entity.maxHealth)
         {
             meshRenderer.enabled = true;
             AlignCamera();
@@ -45,7 +45,7 @@ public class HealthBar : MonoBehaviour
     private void UpdateParams()
     {
         meshRenderer.GetPropertyBlock(matBlock);
-        matBlock.SetFloat("_Fill", enemy.curHealth / (float)enemy.maxHealth);
+        matBlock.SetFloat("_Fill", entity.currentHealth / (float)entity.maxHealth);
         meshRenderer.SetPropertyBlock(matBlock);
     }
 
