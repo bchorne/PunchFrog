@@ -10,6 +10,10 @@ public class PlayerLevel : MonoBehaviour
     private int exp = 0;
 
     public ExpBar bar;
+    public int Level
+    {
+        get { return level; }
+    }
 
     int toNext
     {
