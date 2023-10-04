@@ -18,7 +18,7 @@ public class ExpPickUp : MonoBehaviour, IPickUp
         transform.position = new Vector3(transform.position.x, transform.position.y, -0.1f);
     }
 
-    public void OnPickUp(PlayerMovement player)
+    public void OnPickUp(Player player)
     {
         player.level.AddXp(amount);
         Destroy(gameObject);

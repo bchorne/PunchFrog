@@ -8,7 +8,7 @@ public class PickUpObject : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerMovement p = collision.GetComponent<PlayerMovement>();
+        Player p = collision.GetComponent<Player>();
 
         if (p != null)
         {

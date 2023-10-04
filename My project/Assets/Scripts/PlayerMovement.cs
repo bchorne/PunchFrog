@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public Enemy target;
 
-    public PlayerLevel level;
-
     private void Awake()
     {
         gm = FindObjectOfType<GameManager>();

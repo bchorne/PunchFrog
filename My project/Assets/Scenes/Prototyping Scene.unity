@@ -500,7 +500,7 @@ Transform:
   m_GameObject: {fileID: 513709153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.046, y: 0.31, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5581,6 +5581,7 @@ GameObject:
   - component: {fileID: 673689669}
   - component: {fileID: 673689670}
   - component: {fileID: 673689671}
+  - component: {fileID: 673689672}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -5703,7 +5704,6 @@ MonoBehaviour:
   joy: {fileID: 1886741268}
   gm: {fileID: 1443145393}
   target: {fileID: 0}
-  level: {fileID: 673689670}
 --- !u!58 &673689669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5768,6 +5768,24 @@ MonoBehaviour:
   currentHealth: 1000
   isPlayer: 1
   DamageNum: {fileID: 1556381284255546073, guid: 39cfafbcff606304c8221a6d606f4c23, type: 3}
+--- !u!114 &673689672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673689664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05eb96c6f5c5614fac0faaf5735d161, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 673689670}
+  weapon: {fileID: 513709158}
+  health: {fileID: 673689671}
+  damage: 50
+  dmgMulti: 1.25
+  maxHealth: 1000
 --- !u!1 &701404648
 GameObject:
   m_ObjectHideFlags: 0

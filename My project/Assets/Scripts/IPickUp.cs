@@ -6,5 +6,5 @@ using UnityEngine;
 
 public interface IPickUp
 {
-    public void OnPickUp(PlayerMovement player) {}
+    public void OnPickUp(Player player) {}
 }
