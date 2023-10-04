@@ -29,4 +29,14 @@ public class BulletParticles : MonoBehaviour
             thing.takeDamage(Damage);
         }
     }
+
+    public void ChangeRate(float rate)
+    {
+        sys.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        var main = sys.main;
+        main.duration = 1 / rate;
+
+        sys.Play();
+    }
 }

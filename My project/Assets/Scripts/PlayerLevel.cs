@@ -8,6 +8,7 @@ public class PlayerLevel : MonoBehaviour
 {
     private int level = 1;
     private int exp = 0;
+    public float bonusExp = 1;
 
     public ExpBar bar;
     public int Level
@@ -22,7 +23,7 @@ public class PlayerLevel : MonoBehaviour
 
     public void AddXp(int xp)
     {
-        exp += xp;
+        exp += (int)(xp * bonusExp);
         CheckLevelUp();
         bar.UpdateExpBar(exp, toNext);
     }

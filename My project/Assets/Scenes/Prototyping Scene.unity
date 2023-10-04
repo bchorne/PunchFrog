@@ -5751,6 +5751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4512bc550fb6f4ebc537bd6ad6f389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusExp: 1
   bar: {fileID: 263930175}
 --- !u!114 &673689671
 MonoBehaviour:
@@ -5783,9 +5784,15 @@ MonoBehaviour:
   level: {fileID: 673689670}
   weapon: {fileID: 513709158}
   health: {fileID: 673689671}
+  movement: {fileID: 0}
+  magnet: {fileID: 0}
   damage: 50
   dmgMulti: 1.25
   maxHealth: 1000
+  speed: 5
+  magnetRadius: 1
+  shotsPerSecond: 2
+  expMultiplier: 0
 --- !u!1 &701404648
 GameObject:
   m_ObjectHideFlags: 0
