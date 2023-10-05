@@ -7,6 +7,6 @@ public abstract class BasicUpgrade : ScriptableObject
     public string upgradeName;
     public string description;
     public float amount;
-    public Texture2D icon;
+    public Sprite icon;
     public abstract void ApplySelf(Player player);
 }

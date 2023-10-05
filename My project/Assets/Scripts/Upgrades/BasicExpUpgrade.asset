@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Mind Expansion
   description: Increase EXP Earned From Gems
-  amount: 0.2
-  icon: {fileID: 2800000, guid: 3a2f0fda6d63fa04192c3ea58e094406, type: 3}
+  amount: 0.25
+  icon: {fileID: 21300000, guid: 3a2f0fda6d63fa04192c3ea58e094406, type: 3}

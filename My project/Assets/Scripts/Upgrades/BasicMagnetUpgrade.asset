@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeName: Polarization
   description: Improve Range For EXP Pickups
   amount: 0.5
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 314e1ee999769024bb6f9daf75895a96, type: 3}

@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
         if (!knockback)
         {
             //Move towards player, don't get too close if Ranged type enemy
-            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > 3f))
+            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > 2.5f))
             {
                 rb.velocity = ((new Vector2(player.transform.position.x, player.transform.position.y) - rb.position).normalized * speed);
             }
@@ -80,6 +80,6 @@ public class Enemy : MonoBehaviour
         direction.z = 0;
 
         rb.velocity = Vector2.zero;
-        rb.AddForce(direction * 10, ForceMode2D.Impulse);
+        rb.AddForce(direction*2, ForceMode2D.Impulse);
     }
 }

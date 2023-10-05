@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Coolant Enhancement
   description: Increase Rate of Fire
-  amount: 0.5
-  icon: {fileID: 2800000, guid: 8c3d326aae325e7409ae30d54e76fac0, type: 3}
+  amount: 1.5
+  icon: {fileID: 21300000, guid: 8c3d326aae325e7409ae30d54e76fac0, type: 3}

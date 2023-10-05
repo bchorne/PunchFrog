@@ -13,7 +13,7 @@ public class Damageable : MonoBehaviour
     public void takeDamage(int damageIn)
     {
         currentHealth -= damageIn;
-        GameObject tmp = Instantiate(DamageNum, transform.position, Quaternion.identity);
+        GameObject tmp = Instantiate(DamageNum, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
         tmp.GetComponent<DamageNumber>().text.text = damageIn.ToString();
 
         if (currentHealth <= 0)

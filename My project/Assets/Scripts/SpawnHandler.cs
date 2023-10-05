@@ -30,7 +30,18 @@ public class SpawnHandler : MonoBehaviour
 
     void Start()
     {
-        waves.Add(new EnemyWave(enemies[0], 10));
+        StartCoroutine(addSpawn());
+    }
+
+    IEnumerator addSpawn()
+    {
+        while (true)
+        {
+            Debug.Log("Spawned Wave");
+            waves.Add(new EnemyWave(enemies[0], 10));
+
+            yield return new WaitForSeconds(10f);
+        }
     }
 
     // Update is called once per frame

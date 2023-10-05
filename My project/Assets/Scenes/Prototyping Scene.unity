@@ -324,8 +324,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Upgrade Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5608,6 +5608,8 @@ GameObject:
   - component: {fileID: 583545721}
   - component: {fileID: 583545723}
   - component: {fileID: 583545722}
+  - component: {fileID: 583545724}
+  - component: {fileID: 583545725}
   m_Layer: 5
   m_Name: Upgrade2
   m_TagString: Untagged
@@ -5675,6 +5677,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583545720}
   m_CullTransparentMesh: 1
+--- !u!114 &583545724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583545720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cbdec82dc0f3c48ba9bf478e3c132d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: {fileID: 1530126014}
+  description: {fileID: 249558998}
+  icon: {fileID: 1478397422}
+  upgrade: {fileID: 0}
+  upMan: {fileID: 0}
+--- !u!114 &583545725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583545720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1873428043}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 583545724}
+        m_TargetAssemblyTypeName: UpgradeDisplay, Assembly-CSharp
+        m_MethodName: HandleClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &600810338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5965,6 +6040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusExp: 1
+  upgradeMenu: {fileID: 1443145397}
   bar: {fileID: 263930175}
 --- !u!114 &673689671
 MonoBehaviour:
@@ -5999,13 +6075,13 @@ MonoBehaviour:
   health: {fileID: 673689671}
   movement: {fileID: 673689668}
   magnet: {fileID: 161250166}
-  damage: 5
-  dmgMulti: 1.25
+  damage: 50
+  dmgMulti: 1
   maxHealth: 1000
   speed: 5
   magnetRadius: 1
   shotsPerSecond: 2
-  expMultiplier: 0
+  expMultiplier: 1
 --- !u!1 &701404648
 GameObject:
   m_ObjectHideFlags: 0
@@ -6463,8 +6539,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Up!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6488,7 +6564,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 137.6
+  m_fontSize: 155
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6791,6 +6867,7 @@ GameObject:
   - component: {fileID: 1443145393}
   - component: {fileID: 1443145395}
   - component: {fileID: 1443145396}
+  - component: {fileID: 1443145397}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6866,6 +6943,29 @@ MonoBehaviour:
   - {fileID: 230289465}
   - {fileID: 1521103505}
   - {fileID: 701404648}
+--- !u!114 &1443145397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443145392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3abd8892216804da106b89e5a291b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Upgrades:
+  - {fileID: 11400000, guid: f50c84477ec7e7547bcf87e3a96f8c55, type: 2}
+  - {fileID: 11400000, guid: c2787e977e6a8d04d9c760e26e302d0b, type: 2}
+  - {fileID: 11400000, guid: bf15c496f7babd842943a42e4377c863, type: 2}
+  - {fileID: 11400000, guid: dc302e19723480a4b9492164135dfc03, type: 2}
+  - {fileID: 11400000, guid: b8ed59326bf3ef64dac2708b4a4022bb, type: 2}
+  - {fileID: 11400000, guid: f75f5a6507a00eb45b8846d828652b42, type: 2}
+  upgradeTop: {fileID: 583545724}
+  upgradeBot: {fileID: 1873428045}
+  menu: {fileID: 2093354118}
+  player: {fileID: 0}
 --- !u!1 &1478397420
 GameObject:
   m_ObjectHideFlags: 0
@@ -7108,8 +7208,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Upgrade Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7133,7 +7233,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.95
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7242,8 +7342,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next Major Upgrade In 999 Levels
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7267,7 +7367,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.8
+  m_fontSize: 49.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7382,8 +7482,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Level: 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7407,7 +7507,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 83.3
+  m_fontSize: 101.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7605,8 +7705,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Upgrade Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7630,7 +7730,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 69.95
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7691,6 +7791,8 @@ GameObject:
   - component: {fileID: 1873428042}
   - component: {fileID: 1873428044}
   - component: {fileID: 1873428043}
+  - component: {fileID: 1873428045}
+  - component: {fileID: 1873428046}
   m_Layer: 5
   m_Name: Upgrade1
   m_TagString: Untagged
@@ -7758,6 +7860,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873428041}
   m_CullTransparentMesh: 1
+--- !u!114 &1873428045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873428041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cbdec82dc0f3c48ba9bf478e3c132d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: {fileID: 1754569606}
+  description: {fileID: 2106452849}
+  icon: {fileID: 754517890}
+  upgrade: {fileID: 0}
+  upMan: {fileID: 0}
+--- !u!114 &1873428046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873428041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1873428043}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1873428045}
+        m_TargetAssemblyTypeName: UpgradeDisplay, Assembly-CSharp
+        m_MethodName: HandleClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1886741267 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8135886326569738822, guid: 56fae09712773584fb63896d473a98ee, type: 3}
@@ -7833,8 +8008,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select An Upgrade
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7894,7 +8069,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0.00012207031}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8176,7 +8351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2093354119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8370,8 +8545,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Upgrade Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c1a28c5a01657874da64c4935001451d, type: 2}
+  m_sharedMaterial: {fileID: -2423060594501475117, guid: c1a28c5a01657874da64c4935001451d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

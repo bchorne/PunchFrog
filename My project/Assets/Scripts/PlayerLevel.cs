@@ -9,6 +9,7 @@ public class PlayerLevel : MonoBehaviour
     private int level = 1;
     private int exp = 0;
     public float bonusExp = 1;
+    public UpgradeManager upgradeMenu;
 
     public ExpBar bar;
     public int Level
@@ -34,6 +35,7 @@ public class PlayerLevel : MonoBehaviour
         {
             exp -= toNext;
             level++;
+            upgradeMenu.OpenUpgradeMenu();
         }
     }
 }
