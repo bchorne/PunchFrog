@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635ced63f017f7a4db52c8f49a309621, type: 3}
-  m_Name: BasicDamage
+  m_Script: {fileID: 11500000, guid: aaf1e982b06a3224194631527f10101d, type: 3}
+  m_Name: BasicFireRateUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: Plasma Charger
-  description: Increase Weapon Damage By 25%
-  amount: 0.25
-  icon: {fileID: 2800000, guid: 376182e82cccaed4ba0d9457ad1bcc9a, type: 3}
+  upgradeName: Coolant Enhancement
+  description: Increase Rate of Fire
+  amount: 0.5
+  icon: {fileID: 2800000, guid: 8c3d326aae325e7409ae30d54e76fac0, type: 3}

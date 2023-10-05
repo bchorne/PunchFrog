@@ -19,14 +19,19 @@ public class BulletParticles : MonoBehaviour
     {
         int events = sys.GetCollisionEvents(other, colEvents);
 
-        for (int i = 0; i < events; i++)
-        {
+        //for (int i = 0; i < events; i++)
+        //{
 
-        }
+        //}
 
         if (other.TryGetComponent<Damageable>(out Damageable thing))
         {
             thing.takeDamage(Damage);
+        }
+
+        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            enemy.TakeKnockback((enemy.transform.position - transform.position).normalized);
         }
     }
 

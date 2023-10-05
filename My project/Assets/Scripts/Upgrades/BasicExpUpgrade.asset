@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635ced63f017f7a4db52c8f49a309621, type: 3}
-  m_Name: BasicDamage
+  m_Script: {fileID: 11500000, guid: d970f8964aa1e3d4e8d94868f8391a80, type: 3}
+  m_Name: BasicExpUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: Plasma Charger
-  description: Increase Weapon Damage By 25%
-  amount: 0.25
-  icon: {fileID: 2800000, guid: 376182e82cccaed4ba0d9457ad1bcc9a, type: 3}
+  upgradeName: Mind Expansion
+  description: Increase EXP Earned From Gems
+  amount: 0.2
+  icon: {fileID: 2800000, guid: 3a2f0fda6d63fa04192c3ea58e094406, type: 3}

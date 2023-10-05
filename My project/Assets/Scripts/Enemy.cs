@@ -9,8 +9,10 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
 
-    private PlayerMovement player;
+    private Player player;
     private Rigidbody2D rb;
+    private bool knockback;
+    private float kbTimer;
 
     public enum EnemyType { ranged, melee}
     public EnemyType type;
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         gm = FindObjectOfType<GameManager>();
-        player = FindObjectOfType<PlayerMovement>();
+        player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -38,14 +40,25 @@ public class Enemy : MonoBehaviour
 
         float distance = Vector3.Distance(rb.position, player.transform.position);
 
-        //Move towards player, don't get too close if Ranged type enemy
-        if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > 3f))
+        if (!knockback)
         {
-            rb.velocity = ((new Vector2(player.transform.position.x, player.transform.position.y) - rb.position).normalized * speed);
+            //Move towards player, don't get too close if Ranged type enemy
+            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > 3f))
+            {
+                rb.velocity = ((new Vector2(player.transform.position.x, player.transform.position.y) - rb.position).normalized * speed);
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            kbTimer -= Time.deltaTime;
+            if (kbTimer <= 0)
+            {
+                knockback = false;
+            }
         }
     }
 
@@ -58,5 +71,15 @@ public class Enemy : MonoBehaviour
         gm.enemies.Remove(this);
 
         gameObject.SetActive(false);
+    }
+
+    public void TakeKnockback(Vector3 direction)
+    {
+        knockback = true;
+        kbTimer = 0.2f;
+        direction.z = 0;
+
+        rb.velocity = Vector2.zero;
+        rb.AddForce(direction * 10, ForceMode2D.Impulse);
     }
 }
