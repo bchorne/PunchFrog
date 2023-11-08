@@ -7010,8 +7010,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c29a68f79c6b04f928d0ae613b91f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 913858017857417098, guid: 9c5a7303675205f44b769cf970df11a0, type: 3}
+  waves: []
+  plannedWaves:
+  - count: 3
+    poolIndex: 0
+    delay: 10
+  - count: 5
+    poolIndex: 0
+    delay: 10
+  - count: 3
+    poolIndex: 1
+    delay: 0
+  - count: 4
+    poolIndex: 0
+    delay: 10
+  - count: 10
+    poolIndex: 0
+    delay: 10
+  - count: 1
+    poolIndex: 2
+    delay: 0
   pools:
   - {fileID: 1862603427}
   - {fileID: 977822966}

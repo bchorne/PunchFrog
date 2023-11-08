@@ -1,22 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class EnemyWave
 {
     public int count;
     public int poolIndex;
-
-    public EnemyWave(int count, int poolIndex)
-    {
-        this.count = count;
-        this.poolIndex = poolIndex;
-    }
+    public float delay; //Time to wait before loading on next wave
 }
 
 public class SpawnHandler : MonoBehaviour
 {
     public List<EnemyWave> waves;
+    public List<EnemyWave> plannedWaves;
     public List<ObjectPool> pools;
 
     public List<GameObject> spawns;
@@ -33,14 +31,15 @@ public class SpawnHandler : MonoBehaviour
 
     IEnumerator addSpawn()
     {
-        while (true)
+        while (plannedWaves.Count > 0)
         {
-            Debug.Log("Spawned Wave");
-            waves.Add(new EnemyWave(10, 0));
-            waves.Add(new EnemyWave(5, 1));
-            waves.Add(new EnemyWave(1, 2));
+            waves.Add(plannedWaves[0]);
 
-            yield return new WaitForSeconds(100f);
+            float delay = plannedWaves[0].delay;
+
+            plannedWaves.RemoveAt(0);
+
+            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -58,7 +57,7 @@ public class SpawnHandler : MonoBehaviour
                 if (tmp != null) //Sanity check
                 {
                     //Choose a spawn point
-                    GameObject spawn = spawns[Random.Range(0, spawns.Count)];
+                    GameObject spawn = spawns[UnityEngine.Random.Range(0, spawns.Count)];
 
                     //Reposition enemy to that spawn
                     tmp.transform.position = spawn.transform.position;
