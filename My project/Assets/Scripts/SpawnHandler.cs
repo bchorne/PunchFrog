@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class EnemyWave
 {
-    public GameObject enemy;
     public int count;
+    public int poolIndex;
 
-    public EnemyWave(GameObject enemy, int count)
+    public EnemyWave(int count, int poolIndex)
     {
-        this.enemy = enemy;
         this.count = count;
+        this.poolIndex = poolIndex;
     }
 }
 
 public class SpawnHandler : MonoBehaviour
 {
-    public List<GameObject> enemies;
     public List<EnemyWave> waves;
-    public ObjectPool pool;
+    public List<ObjectPool> pools;
 
     public List<GameObject> spawns;
 
@@ -37,9 +36,11 @@ public class SpawnHandler : MonoBehaviour
         while (true)
         {
             Debug.Log("Spawned Wave");
-            waves.Add(new EnemyWave(enemies[0], 10));
+            waves.Add(new EnemyWave(10, 0));
+            waves.Add(new EnemyWave(5, 1));
+            waves.Add(new EnemyWave(1, 2));
 
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(100f);
         }
     }
 
@@ -52,7 +53,7 @@ public class SpawnHandler : MonoBehaviour
             if (waves[0].count > 0)
             {
                 //Attempt to fetch the enemy from the pool
-                GameObject tmp = pool.GetPooledObject();
+                GameObject tmp = pools[waves[0].poolIndex].GetPooledObject();
 
                 if (tmp != null) //Sanity check
                 {

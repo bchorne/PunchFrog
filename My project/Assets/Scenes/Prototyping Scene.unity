@@ -6082,6 +6082,53 @@ MonoBehaviour:
   magnetRadius: 1
   shotsPerSecond: 2
   expMultiplier: 1
+--- !u!1 &690120615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 690120616}
+  - component: {fileID: 690120617}
+  m_Layer: 0
+  m_Name: TankPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &690120616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690120615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1782480972}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &690120617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690120615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1fb2f3252de674f99138e2d61ccc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 913858017857417098, guid: fe51d8ff35b6ff1418dcca761e0aad75, type: 3}
+  amountToPool: 4
 --- !u!1 &701404648
 GameObject:
   m_ObjectHideFlags: 0
@@ -6412,6 +6459,53 @@ MonoBehaviour:
   minPos: {x: -10, y: -21}
   maxPos: {x: 10, y: 21}
   speed: 0.1
+--- !u!1 &977822964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977822965}
+  - component: {fileID: 977822966}
+  m_Layer: 0
+  m_Name: BasicEnemy2 Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &977822965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977822964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1782480972}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &977822966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977822964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1fb2f3252de674f99138e2d61ccc70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 913858017857417098, guid: 9c5a7303675205f44b769cf970df11a0, type: 3}
+  amountToPool: 15
 --- !u!1 &1209241287
 GameObject:
   m_ObjectHideFlags: 0
@@ -6918,7 +7012,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 913858017857417098, guid: 9c5a7303675205f44b769cf970df11a0, type: 3}
-  pool: {fileID: 1862603427}
+  pools:
+  - {fileID: 1862603427}
+  - {fileID: 977822966}
+  - {fileID: 690120617}
   spawns:
   - {fileID: 161857962}
   - {fileID: 368505118}
@@ -7795,6 +7892,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1862603428}
+  - {fileID: 977822965}
+  - {fileID: 690120616}
   m_Father: {fileID: 1443145394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1862603426
@@ -7827,8 +7926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledObjects: []
-  objectToPool: {fileID: 913858017857417098, guid: fe51d8ff35b6ff1418dcca761e0aad75, type: 3}
-  amountToPool: 1
+  objectToPool: {fileID: 913858017857417098, guid: c3fbf68db33d742408370119775bc5b0, type: 3}
+  amountToPool: 25
 --- !u!4 &1862603428
 Transform:
   m_ObjectHideFlags: 0
