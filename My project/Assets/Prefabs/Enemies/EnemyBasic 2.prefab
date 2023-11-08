@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
+  kbResist: 2
   type: 0
   gm: {fileID: 0}
   ExpDrop: {fileID: 8861113529151272833, guid: 150818a185d575046bb2b0c5ce32ed93, type: 3}
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3ea7a90d47bc6418702192c049bfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2000
+  maxHealth: 200
   currentHealth: 1
   isPlayer: 0
   DamageNum: {fileID: 1556381284255546073, guid: 39cfafbcff606304c8221a6d606f4c23, type: 3}
@@ -276,8 +277,8 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 3
-    scalar: 0
-    minScalar: 0
+    scalar: 3
+    minScalar: 3
     maxCurve:
       serializedVersion: 2
       m_Curve:
@@ -5078,7 +5079,7 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
-  m_SortMode: 0
+  m_SortMode: 3
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -5191,8 +5192,8 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 3
-    scalar: 0
-    minScalar: 0
+    scalar: 3
+    minScalar: 3
     maxCurve:
       serializedVersion: 2
       m_Curve:

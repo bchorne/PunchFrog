@@ -8,6 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class Enemy : MonoBehaviour
 {
     public float speed;
+    public float kbResist; //Multiplier for KB
 
     private Player player;
     private Rigidbody2D rb;
@@ -80,6 +81,6 @@ public class Enemy : MonoBehaviour
         direction.z = 0;
 
         rb.velocity = Vector2.zero;
-        rb.AddForce(direction*2, ForceMode2D.Impulse);
+        rb.AddForce(direction*kbResist, ForceMode2D.Impulse);
     }
 }
