@@ -25,14 +25,9 @@ public class ObjectPool : MonoBehaviour
         {
             tmp = Instantiate(objectToPool);
             tmp.SetActive(false);
+            tmp.transform.SetParent(gameObject.transform, false);
             pooledObjects.Add(tmp);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public GameObject GetPooledObject()

@@ -24,7 +24,6 @@ public class SpawnHandler : MonoBehaviour
 
     private void Awake()
     {
-        pool = GetComponent<ObjectPool>();
         waves = new List<EnemyWave>();
     }
 
