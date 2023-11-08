@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
 {
     public float speed;
     public float kbResist; //Multiplier for KB
+    public float approachDistance; //How close the unit will get to the player.
+    public float contactDamage;
 
     private Player player;
     private Rigidbody2D rb;
     private bool knockback;
     private float kbTimer;
+    private float meleeTimer; //Delay between melee strikes.
 
     public enum EnemyType { ranged, melee}
     public EnemyType type;
@@ -44,7 +47,7 @@ public class Enemy : MonoBehaviour
         if (!knockback)
         {
             //Move towards player, don't get too close if Ranged type enemy
-            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > 2.5f))
+            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > approachDistance))
             {
                 rb.velocity = ((new Vector2(player.transform.position.x, player.transform.position.y) - rb.position).normalized * speed);
             }
@@ -60,6 +63,11 @@ public class Enemy : MonoBehaviour
             {
                 knockback = false;
             }
+        }
+
+        if (meleeTimer >= 0)
+        {
+            meleeTimer -= Time.deltaTime;
         }
     }
 
@@ -82,5 +90,17 @@ public class Enemy : MonoBehaviour
 
         rb.velocity = Vector2.zero;
         rb.AddForce(direction*kbResist, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) //Contact damage with player, primarily for Melee enemies but ranged ones do too.
+    {
+        Player p = collision.gameObject.GetComponent<Player>();
+
+        if (p != null && meleeTimer <= 0)
+        {
+            p.health.takeDamage(100);
+            TakeKnockback((transform.position - p.transform.position).normalized); //Push the enemy back
+            meleeTimer = 0.2f;
+        }
     }
 }

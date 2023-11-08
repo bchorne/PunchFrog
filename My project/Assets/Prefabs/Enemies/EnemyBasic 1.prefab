@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   kbResist: 2
+  approachDistance: 2.5
+  contactDamage: 20
   type: 0
   gm: {fileID: 0}
   ExpDrop: {fileID: 8861113529151272833, guid: 150818a185d575046bb2b0c5ce32ed93, type: 3}

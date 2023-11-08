@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BasicDamage
   m_EditorClassIdentifier: 
   upgradeName: Plasma Charger
-  description: Increase Weapon Damage By 50%
-  amount: 0.5
+  description: Increase Weapon Damage By 40%
+  amount: 0.4
   icon: {fileID: 21300000, guid: 376182e82cccaed4ba0d9457ad1bcc9a, type: 3}
