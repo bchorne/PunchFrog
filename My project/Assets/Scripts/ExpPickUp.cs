@@ -7,6 +7,7 @@ using UnityEngine;
 public class ExpPickUp : MonoBehaviour, IPickUp
 {
     public int amount;
+    public float speed;
     Rigidbody2D rb;
 
     bool magnet = false;
@@ -29,7 +30,7 @@ public class ExpPickUp : MonoBehaviour, IPickUp
         if (magnet)
         {
             Vector2 targetDir = (targetPos - transform.position).normalized;
-            rb.velocity = targetDir * 4f;
+            rb.velocity = targetDir * speed;
         }
     }
 

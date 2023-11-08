@@ -52,26 +52,29 @@ public class SpawnHandler : MonoBehaviour
         {
             if (waves[0].count > 0)
             {
-                //Fetch the enemy from the pool
+                //Attempt to fetch the enemy from the pool
                 GameObject tmp = pool.GetPooledObject();
 
-                //Choose a spawn point
-                GameObject spawn = spawns[Random.Range(0, spawns.Count)];
+                if (tmp != null) //Sanity check
+                {
+                    //Choose a spawn point
+                    GameObject spawn = spawns[Random.Range(0, spawns.Count)];
 
-                //Reposition enemy to that spawn
-                tmp.transform.position = spawn.transform.position;
+                    //Reposition enemy to that spawn
+                    tmp.transform.position = spawn.transform.position;
 
-                //Refill enemy hp
-                tmp.GetComponent<Damageable>().currentHealth = tmp.GetComponent<Damageable>().maxHealth;
+                    //Refill enemy hp
+                    tmp.GetComponent<Damageable>().currentHealth = tmp.GetComponent<Damageable>().maxHealth;
 
-                //Activate them
-                tmp.SetActive(true);
+                    //Activate them
+                    tmp.SetActive(true);
 
-                //Add the enemy to the GameManager list
-                GetComponent<GameManager>().enemies.Add(tmp.GetComponent<Enemy>());
+                    //Add the enemy to the GameManager list
+                    GetComponent<GameManager>().enemies.Add(tmp.GetComponent<Enemy>());
 
-                //Decrement wave counter
-                waves[0].count--;
+                    //Decrement wave counter
+                    waves[0].count--;
+                }
             }
             
             //Remove if empty
