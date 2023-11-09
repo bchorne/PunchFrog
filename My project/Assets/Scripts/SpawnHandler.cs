@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [Serializable]
@@ -40,6 +41,33 @@ public class SpawnHandler : MonoBehaviour
             plannedWaves.RemoveAt(0);
 
             yield return new WaitForSeconds(delay);
+        }
+
+        StartCoroutine("addRandomSpawn"); //Once out of planned waves, start spawning random ones.
+    }
+
+    IEnumerator addRandomSpawn()
+    {
+        while (true)
+        {
+            EnemyWave bas = new EnemyWave(), adv = new EnemyWave(), tnk = new EnemyWave(), mel = new EnemyWave();
+
+            bas.count = UnityEngine.Random.Range(2, 15);
+            adv.count = UnityEngine.Random.Range(0, 10);
+            mel.count = UnityEngine.Random.Range(4, 15);
+            tnk.count = UnityEngine.Random.Range(0, 3);
+
+            bas.poolIndex = 0;
+            adv.poolIndex = 1;
+            tnk.poolIndex = 2;
+            mel.poolIndex = 3;
+
+            waves.Add(bas);
+            waves.Add(adv);
+            waves.Add(tnk);
+            waves.Add(mel);
+
+            yield return new WaitForSeconds(15);
         }
     }
 

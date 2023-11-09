@@ -7133,25 +7133,49 @@ MonoBehaviour:
   plannedWaves:
   - count: 5
     poolIndex: 0
-    delay: 10
-  - count: 15
+    delay: 8
+  - count: 5
     poolIndex: 3
     delay: 0
   - count: 7
     poolIndex: 0
-    delay: 10
+    delay: 20
   - count: 5
     poolIndex: 1
     delay: 0
   - count: 10
     poolIndex: 0
     delay: 0
-  - count: 10
+  - count: 5
     poolIndex: 3
-    delay: 10
+    delay: 20
   - count: 1
     poolIndex: 2
     delay: 0
+  - count: 10
+    poolIndex: 0
+    delay: 0
+  - count: 5
+    poolIndex: 1
+    delay: 20
+  - count: 15
+    poolIndex: 3
+    delay: 6
+  - count: 15
+    poolIndex: 3
+    delay: 10
+  - count: 10
+    poolIndex: 1
+    delay: 10
+  - count: 15
+    poolIndex: 0
+    delay: 0
+  - count: 10
+    poolIndex: 1
+    delay: 0
+  - count: 2
+    poolIndex: 2
+    delay: 20
   pools:
   - {fileID: 1862603427}
   - {fileID: 977822966}
