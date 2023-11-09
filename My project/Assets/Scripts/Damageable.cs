@@ -6,12 +6,18 @@ public class Damageable : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
+    public float defense = 1; //Amount to multiply incoming damage by
 
     public bool isPlayer;
     public GameObject DamageNum;
 
     public void takeDamage(int damageIn)
     {
+        if (isPlayer)
+        {
+            damageIn = (int)(damageIn * defense);
+        }
+
         currentHealth = Mathf.Clamp(currentHealth - damageIn, 0, maxHealth);
         GameObject tmp = Instantiate(DamageNum, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
         DamageNumber num = tmp.GetComponent<DamageNumber>();

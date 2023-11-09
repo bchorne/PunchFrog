@@ -111,6 +111,10 @@ public class Enemy : MonoBehaviour
             meleeTimer = 0.2f;
 
             //IF RETALIATE, DAMAGE ENEMY BACK
+            if (p.retaliate)
+            {
+                damageable.takeDamage((int)(contactDamage * 0.8f));
+            }
         }
     }
 

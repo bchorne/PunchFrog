@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     public PlayerLevel level;
     public BulletParticles weapon;
+    public BulletParticles backshot;
+    public GameObject back;
     public Damageable health;
     public PlayerMovement movement;
     public CircleCollider2D magnet;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     public float magnetRadius;
     public float shotsPerSecond;
     public float expMultiplier;
+    public bool retaliate = false;
 
     private void Start()
     {
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
         //Used for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ShotAmountIncrease();
+            //Test Upgrade Activation
         }
     }
 
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour
     public void UpdateDamage()
     {
         weapon.Damage = (int)(damage * dmgMulti);
+        backshot.Damage = (int)(damage * dmgMulti);
         orbits.sawDamage = (int)(damage * dmgMulti * 0.4);
     }
 
@@ -83,6 +87,7 @@ public class Player : MonoBehaviour
     public void EnableLifesteal()
     {
         weapon.lifesteal = true;
+        backshot.lifesteal = true;
     }
 
     public void ShotAmountIncrease()
@@ -93,6 +98,26 @@ public class Player : MonoBehaviour
     public void AddOrbital()
     {
         orbits.AddOrbital();
+    }
+
+    public void EnableBackShot()
+    {
+        back.SetActive(true);
+    }
+
+    public void StartLaser()
+    {
+        InvokeRepeating("FireLaser", 1, 5);
+    }
+
+    public void EnableRetaliate()
+    {
+        retaliate = true;
+    }
+
+    public void AddDefense()
+    {
+        health.defense = Mathf.Clamp(health.defense -= 0.1f, 0.4f, 1); //Increase our defense, capping at 60% dmg resistance.
     }
 
     public void FireLaser() //Gets all enemies aimed at, damages them
