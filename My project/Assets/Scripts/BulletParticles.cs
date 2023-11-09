@@ -8,7 +8,11 @@ public class BulletParticles : MonoBehaviour
 
     public int Damage;
 
+    public bool lifesteal;
+
     List<ParticleCollisionEvent> colEvents = new List<ParticleCollisionEvent>();
+
+    public Damageable player;
 
     private void Start()
     {
@@ -32,6 +36,11 @@ public class BulletParticles : MonoBehaviour
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
         {
             enemy.TakeKnockback((enemy.transform.position - transform.position).normalized);
+            //Lifesteal Check Here
+            if (lifesteal)
+            {
+                player.takeDamage(Mathf.RoundToInt(-Damage * 0.4f));
+            }
         }
     }
 
@@ -41,6 +50,17 @@ public class BulletParticles : MonoBehaviour
 
         var main = sys.main;
         main.duration = 1 / rate;
+
+        sys.Play();
+    }
+
+    public void IncreaseBurst() //BurstFire Increase
+    {
+        sys.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.Burst burst = sys.emission.GetBurst(0);
+        burst.cycleCount++;
+        sys.emission.SetBurst(0, burst);
 
         sys.Play();
     }

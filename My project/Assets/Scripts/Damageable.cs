@@ -12,9 +12,14 @@ public class Damageable : MonoBehaviour
 
     public void takeDamage(int damageIn)
     {
-        currentHealth -= damageIn;
+        currentHealth = Mathf.Clamp(currentHealth - damageIn, 0, maxHealth);
         GameObject tmp = Instantiate(DamageNum, new Vector3(transform.position.x, transform.position.y, 10), Quaternion.identity);
-        tmp.GetComponent<DamageNumber>().text.text = damageIn.ToString();
+        DamageNumber num = tmp.GetComponent<DamageNumber>();
+
+        num.text.color = (damageIn > 0) ? Color.red : Color.green;
+
+        num.text.text = damageIn.ToString();
+
 
         if (currentHealth <= 0)
         {

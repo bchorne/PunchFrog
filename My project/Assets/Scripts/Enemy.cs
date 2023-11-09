@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float kbResist; //Multiplier for KB
     public float approachDistance; //How close the unit will get to the player.
-    public float contactDamage;
+    public int contactDamage;
 
     private Player player;
     private Rigidbody2D rb;
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
 
         if (p != null && meleeTimer <= 0)
         {
-            p.health.takeDamage(100);
+            p.health.takeDamage(contactDamage);
             TakeKnockback((transform.position - p.transform.position).normalized); //Push the enemy back
             meleeTimer = 0.2f;
         }

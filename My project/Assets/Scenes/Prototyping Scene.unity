@@ -1757,7 +1757,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
       cycleCount: 1
-      repeatInterval: 0.01
+      repeatInterval: 0.1
       probability: 1
   SizeModule:
     enabled: 0
@@ -5567,6 +5567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sys: {fileID: 0}
   Damage: 50
+  player: {fileID: 673689671}
 --- !u!1 &528637557
 GameObject:
   m_ObjectHideFlags: 0

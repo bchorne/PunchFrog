@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
         UpdateLearning();
     }
 
+    private void Update()
+    {
+        //Used for testing
+    }
+
 
     public void UpdateDamage()
     {
@@ -61,5 +66,15 @@ public class Player : MonoBehaviour
     public void UpdateLearning()
     {
         level.bonusExp = expMultiplier;
+    }
+
+    public void BurstCountIncrease()
+    {
+        weapon.IncreaseBurst();
+    }
+
+    public void EnableLifesteal()
+    {
+        weapon.lifesteal = true;
     }
 }
