@@ -10,6 +10,7 @@ public class PlayerLevel : MonoBehaviour
     private int exp = 0;
     public float bonusExp = 1;
     public UpgradeManager upgradeMenu;
+    public int totalExp;
 
     public ExpBar bar;
     public int Level
@@ -25,6 +26,7 @@ public class PlayerLevel : MonoBehaviour
     public void AddXp(int xp)
     {
         exp += (int)(xp * bonusExp);
+        totalExp += xp; //Score only counts raw exp.
         CheckLevelUp();
         bar.UpdateExpBar(exp, toNext);
     }

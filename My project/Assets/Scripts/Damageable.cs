@@ -10,6 +10,12 @@ public class Damageable : MonoBehaviour
 
     public bool isPlayer;
     public GameObject DamageNum;
+    public GameManager GameManager;
+
+    private void Start()
+    {
+        GameManager = FindObjectOfType<GameManager>();
+    }
 
     public void takeDamage(int damageIn)
     {
@@ -32,7 +38,7 @@ public class Damageable : MonoBehaviour
             if (isPlayer)
             {
                 //Game Over
-                Debug.Log("Dead!");
+                GameManager.GameOver();
             }
             else //Must be enemy; get its enemy and run Die
             {
