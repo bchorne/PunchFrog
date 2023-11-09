@@ -106,6 +106,7 @@ MonoBehaviour:
   kbResist: 2
   approachDistance: 2.5
   contactDamage: 20
+  damageable: {fileID: 0}
   type: 0
   gm: {fileID: 0}
   ExpDrop: {fileID: 8861113529151272833, guid: 150818a185d575046bb2b0c5ce32ed93, type: 3}
@@ -5135,6 +5136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sys: {fileID: 0}
   Damage: 10
+  lifesteal: 0
+  player: {fileID: 0}
 --- !u!1001 &1387600524238767431
 PrefabInstance:
   m_ObjectHideFlags: 0

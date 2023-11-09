@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float kbResist; //Multiplier for KB
     public float approachDistance; //How close the unit will get to the player.
     public int contactDamage;
+    public Damageable damageable;
 
     private Player player;
     private Rigidbody2D rb;
@@ -31,6 +32,7 @@ public class Enemy : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         player = FindObjectOfType<Player>();
         rb = GetComponent<Rigidbody2D>();
+        damageable = GetComponent<Damageable>();
     }
 
     private void FixedUpdate()

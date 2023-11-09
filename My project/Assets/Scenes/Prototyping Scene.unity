@@ -5567,6 +5567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sys: {fileID: 0}
   Damage: 50
+  lifesteal: 0
   player: {fileID: 673689671}
 --- !u!1 &528637557
 GameObject:
@@ -6123,7 +6124,7 @@ MonoBehaviour:
   health: {fileID: 673689671}
   movement: {fileID: 673689668}
   magnet: {fileID: 161250166}
-  damage: 50
+  damage: 1
   dmgMulti: 1
   maxHealth: 1000
   speed: 4

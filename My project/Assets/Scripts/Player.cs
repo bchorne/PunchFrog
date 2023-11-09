@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         //Used for testing
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            FireLaser();
+        }
     }
 
 
@@ -76,5 +80,22 @@ public class Player : MonoBehaviour
     public void EnableLifesteal()
     {
         weapon.lifesteal = true;
+    }
+
+    public void FireLaser() //Gets all enemies aimed at, damages them
+    {
+        RaycastHit2D[] hits;
+        hits = Physics2D.RaycastAll(transform.position, -transform.up, 100f);
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            RaycastHit2D hit = hits[i];
+            Enemy enemy = hit.transform.GetComponent<Enemy>();
+
+            if (enemy)
+            {
+                enemy.damageable.takeDamage(Mathf.RoundToInt(damage * dmgMulti * 3));
+            }
+        }
     }
 }
