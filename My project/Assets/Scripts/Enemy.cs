@@ -101,6 +101,8 @@ public class Enemy : MonoBehaviour
             p.health.takeDamage(contactDamage);
             TakeKnockback((transform.position - p.transform.position).normalized); //Push the enemy back
             meleeTimer = 0.2f;
+
+            //IF RETALIATE, DAMAGE ENEMY BACK
         }
     }
 }
