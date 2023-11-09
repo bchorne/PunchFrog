@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     private bool knockback;
     private float kbTimer;
     private float meleeTimer; //Delay between melee strikes.
+    private float sawTimer; //Time between saw hits, prevents saw from killing each frame
 
     public enum EnemyType { ranged, melee}
     public EnemyType type;
@@ -71,6 +72,11 @@ public class Enemy : MonoBehaviour
         {
             meleeTimer -= Time.deltaTime;
         }
+
+        if (sawTimer >= 0)
+        {
+            sawTimer -= Time.deltaTime;
+        }
     }
 
     public void Die()
@@ -105,6 +111,15 @@ public class Enemy : MonoBehaviour
             meleeTimer = 0.2f;
 
             //IF RETALIATE, DAMAGE ENEMY BACK
+        }
+    }
+
+    public void Saw(int dmg)
+    {
+        if (sawTimer <= 0) 
+        {
+            sawTimer = 0.2f;
+            damageable.takeDamage(dmg);
         }
     }
 }

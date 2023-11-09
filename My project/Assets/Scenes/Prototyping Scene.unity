@@ -234,6 +234,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1976246450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &219721377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219721378}
+  - component: {fileID: 219721379}
+  - component: {fileID: 219721380}
+  m_Layer: 3
+  m_Name: Orbitals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &219721378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219721377}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &219721379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219721377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d45327679ff5b49895a5670e0a964f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sawPrefab: {fileID: 6544455341593329571, guid: 93a8868f49bcf174c8eceda422ec18fa, type: 3}
+  player: {fileID: 673689664}
+  radius: 1.3
+  sawDamage: 0
+--- !u!114 &219721380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219721377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e63872f186a8949b2973f49d8c36ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
 --- !u!1 &223000370
 GameObject:
   m_ObjectHideFlags: 0
@@ -6124,6 +6186,8 @@ MonoBehaviour:
   health: {fileID: 673689671}
   movement: {fileID: 673689668}
   magnet: {fileID: 161250166}
+  orbits: {fileID: 219721379}
+  laser: {fileID: 2580050847995739867, guid: 9092a7c0e2489b542acf60f619533cab, type: 3}
   damage: 1
   dmgMulti: 1
   maxHealth: 1000
@@ -8942,6 +9006,7 @@ SceneRoots:
   - {fileID: 884975978}
   - {fileID: 840140250}
   - {fileID: 673689667}
+  - {fileID: 219721378}
   - {fileID: 600810342}
   - {fileID: 1209241290}
   - {fileID: 1443145394}

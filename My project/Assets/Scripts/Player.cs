@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Damageable health;
     public PlayerMovement movement;
     public CircleCollider2D magnet;
+    public SpaceOrbitals orbits;
+    public GameObject laser;
 
     public int damage; //Base Damage
     public float dmgMulti; //Total bonus damage from upgrades
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour
     public void UpdateDamage()
     {
         weapon.Damage = (int)(damage * dmgMulti);
+        orbits.sawDamage = (int)(damage * dmgMulti * 0.4);
     }
 
     public void UpdateHealth()
@@ -84,6 +87,8 @@ public class Player : MonoBehaviour
 
     public void FireLaser() //Gets all enemies aimed at, damages them
     {
+        Instantiate(laser, transform.position, transform.rotation);
+        
         RaycastHit2D[] hits;
         hits = Physics2D.RaycastAll(transform.position, -transform.up, 100f);
 
