@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         //Used for testing
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            FireLaser();
+            ShotAmountIncrease();
         }
     }
 
@@ -83,6 +83,16 @@ public class Player : MonoBehaviour
     public void EnableLifesteal()
     {
         weapon.lifesteal = true;
+    }
+
+    public void ShotAmountIncrease()
+    {
+        weapon.IncreaseSpread();
+    }
+
+    public void AddOrbital()
+    {
+        orbits.AddOrbital();
     }
 
     public void FireLaser() //Gets all enemies aimed at, damages them

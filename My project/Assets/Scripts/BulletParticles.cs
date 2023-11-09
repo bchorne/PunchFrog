@@ -14,6 +14,8 @@ public class BulletParticles : MonoBehaviour
 
     public Damageable player;
 
+    public int spreadCount = 1;
+
     private void Start()
     {
         sys = GetComponent<ParticleSystem>();
@@ -61,6 +63,43 @@ public class BulletParticles : MonoBehaviour
         ParticleSystem.Burst burst = sys.emission.GetBurst(0);
         burst.cycleCount++;
         sys.emission.SetBurst(0, burst);
+
+        sys.Play();
+    }
+
+    public void IncreaseSpread()
+    {
+        spreadCount++;
+
+        sys.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        var shape = sys.shape;
+        ParticleSystem.Burst burst = sys.emission.GetBurst(0);
+        ParticleSystem.MinMaxCurve cons = burst.count;
+        cons.constant = cons.constant + 1;
+        burst.count = cons;
+        sys.emission.SetBurst(0, burst);
+
+        switch(spreadCount)
+        {
+            case 2: //Adding our first extra bullet
+                shape.arc = 8;
+                shape.rotation = new Vector3(shape.rotation.x, shape.rotation.y, -94);
+                break;
+            case 3:
+                shape.arc = 20;
+                shape.rotation = new Vector3(shape.rotation.x, shape.rotation.y, -100);
+                break;
+            case 4:
+            case 5:
+                shape.arc = 30;
+                shape.rotation = new Vector3(shape.rotation.x, shape.rotation.y, -105);
+                break;
+            default: //Additional particles beyond the 5th
+                shape.arc = 40;
+                shape.rotation = new Vector3(shape.rotation.x, shape.rotation.y, -110);
+                break;
+        }
 
         sys.Play();
     }

@@ -13,11 +13,6 @@ public class SpaceOrbitals : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddOrbital();
-        }
-
         transform.position = player.transform.position;
     }
 
@@ -40,7 +35,7 @@ public class SpaceOrbitals : MonoBehaviour
             float x = Mathf.Cos(theta) * radius;
             float y = Mathf.Sin(theta) * radius;
 
-            orbitals[i].transform.position = new Vector3(x, y, -2);
+            orbitals[i].transform.localPosition = new Vector3(x, y, -2);
         }
     }
 }
