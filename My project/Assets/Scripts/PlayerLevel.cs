@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Level information for the player, opens an upgrade menu when a threshold is met.
 public class PlayerLevel : MonoBehaviour
 {
     private int level = 1;

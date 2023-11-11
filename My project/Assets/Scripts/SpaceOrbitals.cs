@@ -8,8 +8,8 @@ public class SpaceOrbitals : MonoBehaviour
     public GameObject sawPrefab;
 
     public GameObject player;
-    public float radius;
-    public int sawDamage;
+    public float radius; //Distance of the orbit
+    public int sawDamage; //Contact Damage for enemies.
 
     private void Update()
     {
@@ -26,7 +26,7 @@ public class SpaceOrbitals : MonoBehaviour
         RecalcPos();
     }
 
-    private void RecalcPos()
+    private void RecalcPos() //Evenly space the sawblades around a circle, using Polar Coordinates.
     {
         for (int i = 0; i < orbitals.Count; i++)
         {

@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Preloads a given amount of a prefab into the scene, then sets them to be inactive. This creates them all up front,
+//and avoids loading hitches in the middle of gameplay by shifting all the burden to the start of the scene.
 public class ObjectPool : MonoBehaviour
 {
     public List<GameObject> pooledObjects;
@@ -24,7 +26,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject() //Find an inactive object in our pre-set pool and return it.
     {
         for (int i = 0; i < amountToPool; i++)
         {

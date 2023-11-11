@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Magnetic EXP Pickup effect.
 public class ExpPickUp : MonoBehaviour, IPickUp
 {
     public int amount;
@@ -27,7 +28,7 @@ public class ExpPickUp : MonoBehaviour, IPickUp
 
     private void FixedUpdate()
     {
-        if (magnet)
+        if (magnet) //If we've been set off, zoom towards the target player.
         {
             Vector2 targetDir = (targetPos - transform.position).normalized;
             rb.velocity = targetDir * speed;

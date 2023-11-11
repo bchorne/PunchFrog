@@ -23,19 +23,12 @@ public class BulletParticles : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        int events = sys.GetCollisionEvents(other, colEvents);
-
-        //for (int i = 0; i < events; i++)
-        //{
-
-        //}
-
-        if (other.TryGetComponent<Damageable>(out Damageable thing))
+        if (other.TryGetComponent<Damageable>(out Damageable thing)) //Sanity check for a damageable thing
         {
             thing.takeDamage(Damage);
         }
 
-        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        if (other.TryGetComponent<Enemy>(out Enemy enemy)) //Apply knockback only to an Enemy
         {
             enemy.TakeKnockback((enemy.transform.position - transform.position).normalized);
             //Lifesteal Check Here
@@ -46,7 +39,7 @@ public class BulletParticles : MonoBehaviour
         }
     }
 
-    public void ChangeRate(float rate)
+    public void ChangeRate(float rate) //Set the duration of the emitter based on the rate
     {
         sys.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
@@ -67,12 +60,13 @@ public class BulletParticles : MonoBehaviour
         sys.Play();
     }
 
-    public void IncreaseSpread()
+    public void IncreaseSpread() //Add extra bullets to our shot
     {
         spreadCount++;
 
         sys.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
+        //Get and set an extra bullet
         var shape = sys.shape;
         ParticleSystem.Burst burst = sys.emission.GetBurst(0);
         ParticleSystem.MinMaxCurve cons = burst.count;
@@ -80,6 +74,7 @@ public class BulletParticles : MonoBehaviour
         burst.count = cons;
         sys.emission.SetBurst(0, burst);
 
+        //Change the arc of our spread to accomodate for the extra projectiles.
         switch(spreadCount)
         {
             case 2: //Adding our first extra bullet

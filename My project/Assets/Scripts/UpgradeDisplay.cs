@@ -1,3 +1,5 @@
+//Class for loading in Upgrade scriptable objects into a UI Display Object.
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;

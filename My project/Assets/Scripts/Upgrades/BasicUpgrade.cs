@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Base scriptable object class for every upgrade. Unique upgrades inherit from this and write differently to the ApplySelf func.
 public abstract class BasicUpgrade : ScriptableObject
 {
     public string upgradeName;

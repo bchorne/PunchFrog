@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParticleRotation : MonoBehaviour
 {
+    //Enemies need a different starting particle rotation for some reason. Orient the particles based on origin rotation.
     ParticleSystem sys;
     public bool isEnemy;
     // Start is called before the first frame update

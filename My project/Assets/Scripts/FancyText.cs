@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FancyText : MonoBehaviour
 {
-    // Update is called once per frame
+    // Adjust position of element based on Sin(Time) for a smooth floating effect.
     void Update()
     {
         float theta = Mathf.Cos(Time.time * 2);

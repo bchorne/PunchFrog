@@ -5,13 +5,14 @@ using UnityEditor;
 using UnityEngine;
 
 [Serializable]
-public class EnemyWave
+public class EnemyWave //Information for a group of enemies to spawn
 {
     public int count;
     public int poolIndex;
     public float delay; //Time to wait before loading on next wave
 }
 
+//Spawns set groups of enemies on a timer at 8 random spawns around the player.
 public class SpawnHandler : MonoBehaviour
 {
     public List<EnemyWave> waves;
@@ -30,7 +31,7 @@ public class SpawnHandler : MonoBehaviour
         StartCoroutine(addSpawn());
     }
 
-    IEnumerator addSpawn()
+    IEnumerator addSpawn() //Add a planned wave from the editor into the scene.
     {
         while (plannedWaves.Count > 0)
         {
@@ -50,6 +51,7 @@ public class SpawnHandler : MonoBehaviour
     {
         while (true)
         {
+            //Randomise a group of spawns
             EnemyWave bas = new EnemyWave(), adv = new EnemyWave(), tnk = new EnemyWave(), mel = new EnemyWave();
 
             bas.count = UnityEngine.Random.Range(2, 15);

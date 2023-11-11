@@ -1,3 +1,4 @@
+//Base player class. Mostly executes upgrades between its component parts.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,14 +6,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public PlayerLevel level;
-    public BulletParticles weapon;
-    public BulletParticles backshot;
-    public GameObject back;
+    public BulletParticles weapon; //Primary weapon system
+    public BulletParticles backshot; //Back Shot weapon, unocked via upgrade
+    public GameObject back; //For turning backshot on
     public Damageable health;
     public PlayerMovement movement;
-    public CircleCollider2D magnet;
-    public SpaceOrbitals orbits;
-    public GameObject laser;
+    public CircleCollider2D magnet; //Larger collider for picking up exp gems at a distance
+    public SpaceOrbitals orbits; //For telling orbitals to spawn.
+    public GameObject laser; //Laser prefab
 
     public int damage; //Base Damage
     public float dmgMulti; //Total bonus damage from upgrades
@@ -36,24 +37,15 @@ public class Player : MonoBehaviour
         UpdateLearning();
     }
 
-    private void Update()
-    {
-        //Used for testing
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //Test Upgrade Activation
-        }
-    }
 
-
-    public void UpdateDamage()
+    public void UpdateDamage() //Set the damage values for our weapons
     {
         weapon.Damage = (int)(damage * dmgMulti);
         backshot.Damage = (int)(damage * dmgMulti);
         orbits.sawDamage = (int)(damage * dmgMulti * 0.4);
     }
 
-    public void UpdateHealth()
+    public void UpdateHealth() //If there is a difference in our max health, heal for that difference. then, set new max health.
     {
         health.currentHealth += maxHealth - health.maxHealth;
         health.maxHealth = maxHealth;
@@ -122,7 +114,7 @@ public class Player : MonoBehaviour
 
     public void FireLaser() //Gets all enemies aimed at, damages them
     {
-        Instantiate(laser, transform.position, transform.rotation);
+        Instantiate(laser, transform.position, transform.rotation); //Create the laser sprite, which fades itself out.
         
         RaycastHit2D[] hits;
         hits = Physics2D.RaycastAll(transform.position, -transform.up, 100f);

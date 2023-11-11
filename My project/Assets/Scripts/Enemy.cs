@@ -1,3 +1,5 @@
+//Base class for an enemy entity.
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -16,7 +18,7 @@ public class Enemy : MonoBehaviour
     private Player player;
     private Rigidbody2D rb;
     private bool knockback;
-    private float kbTimer;
+    private float kbTimer; //How long to stay "stunned"
     private float meleeTimer; //Delay between melee strikes.
     private float sawTimer; //Time between saw hits, prevents saw from killing each frame
 
@@ -45,12 +47,12 @@ public class Enemy : MonoBehaviour
             rb.rotation = angle;
         }
 
-        float distance = Vector3.Distance(rb.position, player.transform.position);
+        float distanceToPlayer = Vector3.Distance(rb.position, player.transform.position);
 
         if (!knockback)
         {
             //Move towards player, don't get too close if Ranged type enemy
-            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distance > approachDistance))
+            if (!(type == EnemyType.ranged) || (type == EnemyType.ranged && distanceToPlayer > approachDistance))
             {
                 rb.velocity = ((new Vector2(player.transform.position.x, player.transform.position.y) - rb.position).normalized * speed);
             }
@@ -59,7 +61,7 @@ public class Enemy : MonoBehaviour
                 rb.velocity = Vector2.zero;
             }
         }
-        else
+        else //Run knockback timer while knockedback
         {
             kbTimer -= Time.deltaTime;
             if (kbTimer <= 0)
@@ -85,12 +87,14 @@ public class Enemy : MonoBehaviour
         GameObject tmp = Instantiate(ExpDrop, transform.position, Quaternion.identity);
         tmp.GetComponent<ExpPickUp>().amount = ExpReward;
         
+        //Remove from target reference
         gm.enemies.Remove(this);
 
+        //Return to object pool
         gameObject.SetActive(false);
     }
 
-    public void TakeKnockback(Vector3 direction)
+    public void TakeKnockback(Vector3 direction) //Stop regular movement and force movement in a given direction
     {
         knockback = true;
         kbTimer = 0.2f;
@@ -118,7 +122,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Saw(int dmg)
+    public void Saw(int dmg) //Prevent saws from obliterating enemies each frame
     {
         if (sawTimer <= 0) 
         {

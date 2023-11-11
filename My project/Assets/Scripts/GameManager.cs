@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//Manages scene changes, holds references to the player and enemies for both to aim ait.
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public List<Enemy> enemies;
     public PlayerMovement player;
     public GameObject GameOverMenu;
