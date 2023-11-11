@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverMenu;
     public TextMeshProUGUI goText;
     public PlayerLevel level;
+    public SceneManagwer scene;
 
     void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
+        scene = FindObjectOfType<SceneManagwer>();
     }
 
     public void GameOver() //Call up the game over overlay.
@@ -23,5 +25,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         GameOverMenu.SetActive(true);
         goText.text = $"SCORE: {level.totalExp}";
+    }
+
+    public void clickBegin()
+    {
+        scene.LoadGame();
+    }
+
+    public void clickOver()
+    {
+        scene.LoadMenu();
+    }
+
+    public void CloseGame()
+    {
+        Application.Quit();
     }
 }
